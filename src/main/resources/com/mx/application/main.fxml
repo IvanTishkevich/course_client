@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mx.logic.controllers.MainController">
+   <children>
+      <BorderPane fx:id="borderPane" layoutX="46.0" prefHeight="600.0" prefWidth="978.0" />
+      <AnchorPane fx:id="menu" layoutX="-215.0" prefHeight="600.0" prefWidth="220.0" style="-fx-background-color: #808080;" stylesheets="@css/menuButton.css">
+         <children>
+            <Button fx:id="persAreaBtn" alignment="CENTER" layoutY="520.0" mnemonicParsing="false" onAction="#handleMenuButtonAction" prefHeight="34.0" prefWidth="220.0" text="Личный кабинет" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="statsBtn" alignment="CENTER" layoutY="309.0" mnemonicParsing="false" onAction="#handleMenuButtonAction" prefHeight="35.0" prefWidth="220.0" text="Статистика" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="productsBtn" alignment="CENTER" layoutY="169.0" mnemonicParsing="false" onAction="#handleMenuButtonAction" prefHeight="35.0" prefWidth="220.0" text="Продукция" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="suppliesBtn" alignment="CENTER" layoutY="274.0" mnemonicParsing="false" onAction="#handleMenuButtonAction" prefHeight="35.0" prefWidth="220.0" text="Поставки" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="salesBtn" alignment="CENTER" layoutY="204.0" mnemonicParsing="false" onAction="#handleMenuButtonAction" prefHeight="35.0" prefWidth="220.0" text="Продажи" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="exitBtn" alignment="CENTER" layoutY="555.0" mnemonicParsing="false" onAction="#handleMenuButtonAction" prefHeight="26.0" prefWidth="220.0" text="Выйти" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Pane prefHeight="160.0" prefWidth="220.0" style="-fx-background-color: #696969;">
+               <children>
+                  <ImageView fitHeight="67.0" fitWidth="62.0" layoutX="79.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/user2.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="labelRole" alignment="CENTER" layoutX="9.0" layoutY="80.0" prefHeight="20.0" prefWidth="203.0" text="Администратор" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelLogin" alignment="CENTER" layoutX="9.0" layoutY="100.0" prefHeight="49.0" prefWidth="203.0" text="MainAdmin" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Times New Roman" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Button fx:id="userWorkBtn" alignment="CENTER" layoutY="485.0" mnemonicParsing="false" onAction="#handleMenuButtonAction" prefHeight="34.0" prefWidth="220.0" text="Работа с пользователями" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="providersBtn" alignment="CENTER" layoutY="239.0" mnemonicParsing="false" onAction="#handleMenuButtonAction" prefHeight="35.0" prefWidth="220.0" text="Поставщики" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+      <AnchorPane fx:id="panel" prefHeight="600.0" prefWidth="46.0" style="-fx-background-color: #696969;">
+         <children>
+            <Button fx:id="menuBtn" cancelButton="true" layoutY="14.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: #696969; -fx-padding: 0;">
+               <graphic>
+                  <ImageView fx:id="iconMenu" fitHeight="37.0" fitWidth="37.0" layoutX="35.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/menu2.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="panelExitBtn" layoutY="546.0" mnemonicParsing="false" onAction="#handleMenuButtonAction" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: #696969; -fx-padding: 0;">
+               <graphic>
+                  <ImageView fx:id="iconExit" fitHeight="37.0" fitWidth="37.0" layoutX="35.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/exit.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>

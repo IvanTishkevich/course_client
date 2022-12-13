@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="978.0" stylesheets="@css/button.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mx.logic.controllers.ProductsController">
+   <children>
+      <AnchorPane fx:id="productsPane" prefHeight="600.0" prefWidth="978.0" style="-fx-background-color: #424242;">
+         <children>
+            <Label layoutX="377.0" layoutY="40.0" text="ПРОДУКЦИЯ" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="34.0" />
+               </font>
+            </Label>
+            <TableView fx:id="techTable" layoutX="78.0" layoutY="168.0" onMouseClicked="#getTech" prefHeight="378.0" prefWidth="638.0" style="-fx-background-color: #696969;" tableMenuButtonVisible="true">
+               <columns>
+                  <TableColumn fx:id="colTypeName" prefWidth="149.60000610351562" text="Тип" />
+                  <TableColumn fx:id="colBrand" prefWidth="99.19998168945312" text="Марка" />
+                  <TableColumn fx:id="colModel" prefWidth="122.39996337890625" text="Модель" />
+                  <TableColumn fx:id="colYear" prefWidth="101.5999755859375" text="Год выпуска" />
+                  <TableColumn fx:id="colQuantity" prefWidth="150.4000244140625" text="Количество на складе" />
+               </columns>
+            </TableView>
+            <Button fx:id="refreshBtn" focusTraversable="false" layoutX="756.0" layoutY="168.0" mnemonicParsing="false" onAction="#refreshTable" prefHeight="34.0" prefWidth="143.0" text="Обновить">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="delBtn" focusTraversable="false" layoutX="756.0" layoutY="322.0" mnemonicParsing="false" onAction="#delTech" prefHeight="34.0" prefWidth="143.0" text="Удалить">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="addBtn" focusTraversable="false" layoutX="756.0" layoutY="219.0" mnemonicParsing="false" onAction="#addTechBtn" prefHeight="34.0" prefWidth="143.0" text="Добавить">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <TextField fx:id="filterField" layoutX="78.0" layoutY="108.0" prefHeight="26.0" prefWidth="229.0" promptText="Ввведите марку или модель">
+               <font>
+                  <Font name="Times New Roman" size="16.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="39.0" fitWidth="26.0" layoutX="316.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/search.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="editBtn" focusTraversable="false" layoutX="756.0" layoutY="270.0" mnemonicParsing="false" onAction="#editTechBtn" prefHeight="34.0" prefWidth="143.0" text="Редактировать">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="addSaleBtn" focusTraversable="false" layoutX="756.0" layoutY="375.0" mnemonicParsing="false" onAction="#addSaleBtn" prefHeight="54.0" prefWidth="143.0" text="Добавить продажу" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addPane" layoutX="98.0" layoutY="93.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="782.0" style="-fx-background-radius: 7; -fx-background-color: #696969;" visible="false">
+         <children>
+            <TextField fx:id="typeNameAddField" focusTraversable="false" layoutX="220.0" layoutY="110.0" prefHeight="45.0" prefWidth="342.0" promptText="Тип техники">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="modelAddField" focusTraversable="false" layoutX="422.0" layoutY="199.0" prefHeight="45.0" prefWidth="342.0" promptText="Модель">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="releaseYearAddField" focusTraversable="false" layoutX="16.0" layoutY="296.0" prefHeight="45.0" prefWidth="342.0" promptText="Год выпуска">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="quantityInStockAddField" focusTraversable="false" layoutX="422.0" layoutY="296.0" prefHeight="45.0" prefWidth="342.0" promptText="Количество на складе">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="brandAddField" focusTraversable="false" layoutX="18.0" layoutY="199.0" prefHeight="45.0" prefWidth="342.0" promptText="Бренд">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <Button fx:id="addTechBtn" focusTraversable="false" layoutX="239.0" layoutY="384.0" mnemonicParsing="false" onAction="#addTech" prefHeight="35.0" prefWidth="120.0" text="Добавить">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="closeAddPaneBtn" focusTraversable="false" layoutX="422.0" layoutY="384.0" mnemonicParsing="false" onAction="#closePane" prefHeight="34.0" prefWidth="120.0" text="Закрыть">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="178.0" layoutY="25.0" text="ДОБАВЛЕНИЕ ТЕХНИКИ" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="34.0" />
+               </font>
+            </Label>
+            <Label fx:id="yearWarningAdd" layoutX="14.0" layoutY="342.0" text="Некорректный ввод" textFill="RED" visible="false" />
+            <Label fx:id="fieldWarningAdd" layoutX="244.0" layoutY="420.0" text="Заполните все поля" textFill="RED" visible="false" />
+            <Label layoutX="220.0" layoutY="84.0" text="Тип техники" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="173.0" text="Бренд" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="422.0" layoutY="173.0" text="Модель" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="270.0" text="Год выпуска" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="422.0" layoutY="270.0" text="Количество на складе" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="successAdd" layoutX="337.0" layoutY="360.0" text="Техника добавлена" textFill="#57ff57" visible="false" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="editPane" layoutX="98.0" layoutY="93.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="782.0" style="-fx-background-radius: 7; -fx-background-color: #696969;" visible="false">
+         <children>
+            <TextField fx:id="typeNameEditField" focusTraversable="false" layoutX="220.0" layoutY="110.0" prefHeight="45.0" prefWidth="342.0" promptText="Тип техники">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="modelEditField" focusTraversable="false" layoutX="422.0" layoutY="198.0" prefHeight="45.0" prefWidth="342.0" promptText="Модель">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="releaseYearEditField" focusTraversable="false" layoutX="18.0" layoutY="296.0" prefHeight="45.0" prefWidth="342.0" promptText="Год выпуска">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="quantityInStockEditField" focusTraversable="false" layoutX="422.0" layoutY="296.0" prefHeight="45.0" prefWidth="342.0" promptText="Количество на складе">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="brandEditField" focusTraversable="false" layoutX="18.0" layoutY="198.0" prefHeight="45.0" prefWidth="342.0" promptText="Бренд">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <Button fx:id="editTechBtn" focusTraversable="false" layoutX="239.0" layoutY="388.0" mnemonicParsing="false" onAction="#editTech" prefHeight="35.0" prefWidth="120.0" text="Изменить">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="closeEditPaneBtn" focusTraversable="false" layoutX="422.0" layoutY="388.0" mnemonicParsing="false" onAction="#closePane" prefHeight="34.0" prefWidth="120.0" text="Закрыть">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="223.0" layoutY="25.0" text="РЕДАКТИРОВАНИЕ" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="34.0" />
+               </font>
+            </Label>
+            <Label fx:id="yearWarningEdit" layoutX="18.0" layoutY="342.0" text="Некорректный ввод" textFill="RED" visible="false" />
+            <Label fx:id="fieldWarningEdit" layoutX="244.0" layoutY="420.0" text="Заполните все поля" textFill="RED" visible="false" />
+            <Label layoutX="220.0" layoutY="84.0" text="Тип техники" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="173.0" text="Бренд" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="422.0" layoutY="173.0" text="Модель" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="270.0" text="Год выпуска" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="422.0" layoutY="270.0" text="Количество на складе" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="successEdit" layoutX="335.0" layoutY="363.0" text="Внесены изменения" textFill="#57ff57" visible="false" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="salePane" layoutX="108.0" layoutY="103.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="782.0" style="-fx-background-radius: 7; -fx-background-color: #696969;" visible="false">
+         <children>
+            <TextField fx:id="priceSaleField" focusTraversable="false" layoutX="219.0" layoutY="149.0" prefHeight="45.0" prefWidth="342.0" promptText="Цена продажи">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="quantitySaleField" focusTraversable="false" layoutX="16.0" layoutY="251.0" prefHeight="45.0" prefWidth="342.0" promptText="Количество">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <Button fx:id="saleBtn" focusTraversable="false" layoutX="240.0" layoutY="352.0" mnemonicParsing="false" onAction="#saleTech" prefHeight="35.0" prefWidth="120.0" text="Добавить">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="closeSalePaneBtn" focusTraversable="false" layoutX="423.0" layoutY="352.0" mnemonicParsing="false" onAction="#closePane" prefHeight="34.0" prefWidth="120.0" text="Закрыть">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="300.0" layoutY="26.0" text="ПРОДАЖА" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="34.0" />
+               </font>
+            </Label>
+            <Label fx:id="priceWarningSale" layoutX="219.0" layoutY="195.0" text="Некорректный ввод" textFill="RED" visible="false" />
+            <Label fx:id="quantityWarningSale" layoutX="16.0" layoutY="297.0" text="Некорректный ввод" textFill="RED" visible="false" />
+            <Label fx:id="fieldWarningSale" layoutX="245.0" layoutY="386.0" text="Заполните все поля" textFill="RED" visible="false" />
+            <DatePicker fx:id="datePicker" editable="false" layoutX="421.0" layoutY="250.0" prefHeight="46.0" prefWidth="342.0" promptText="Дата продажи" />
+            <Label layoutX="219.0" layoutY="123.0" text="Цена продажи" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="225.0" text="Количество проданных" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="423.0" layoutY="225.0" text="Дата продажи" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="74.0" text="Техника:" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="techSaleLabel" layoutX="112.0" layoutY="74.0" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Times New Roman Bold" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="successSale" layoutX="336.0" layoutY="323.0" text="Добавлена продажа" textFill="#57ff57" visible="false" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

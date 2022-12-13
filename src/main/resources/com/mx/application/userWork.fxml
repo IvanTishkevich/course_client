@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="978.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mx.logic.controllers.UserWorkController">
+   <children>
+      <AnchorPane fx:id="userWorkPane" prefHeight="600.0" prefWidth="978.0" style="-fx-background-color: #424242;" stylesheets="@css/button.css">
+         <children>
+            <Label layoutX="224.0" layoutY="40.0" text="РАБОТА С ПОЛЬЗОВАТЕЛЯМИ" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="34.0" />
+               </font>
+            </Label>
+            <TableView fx:id="usersTable" layoutX="39.0" layoutY="163.0" onMouseClicked="#getUser" prefHeight="378.0" prefWidth="734.0" style="-fx-background-color: #696969;" tableMenuButtonVisible="true">
+               <columns>
+                  <TableColumn fx:id="colLogin" prefWidth="112.80002212524414" text="Логин" />
+                  <TableColumn fx:id="colEmail" prefWidth="103.99995422363281" text="Email" />
+                  <TableColumn fx:id="colRole" prefWidth="46.39996337890625" text="Роль" />
+                  <TableColumn fx:id="colName" prefWidth="92.800048828125" text="Имя" />
+                  <TableColumn fx:id="colSurname" prefWidth="113.5999755859375" text="Фамилия" />
+                  <TableColumn fx:id="colAddress" prefWidth="184.0" text="Адрес" />
+                  <TableColumn fx:id="colTelephone" minWidth="0.0" prefWidth="66.39996337890625" text="Телефон" />
+               </columns>
+            </TableView>
+            <TextField fx:id="filterField" layoutX="39.0" layoutY="102.0" prefHeight="26.0" prefWidth="229.0" promptText="Ввведите имя или фамилию">
+               <font>
+                  <Font name="Times New Roman" size="16.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="39.0" fitWidth="26.0" layoutX="277.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/search.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="refreshBtn" focusTraversable="false" layoutX="796.0" layoutY="163.0" mnemonicParsing="false" onAction="#refreshTable" prefHeight="34.0" prefWidth="143.0" text="Обновить">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="delBtn" focusTraversable="false" layoutX="796.0" layoutY="265.0" mnemonicParsing="false" onAction="#delUser" prefHeight="34.0" prefWidth="143.0" text="Удалить">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="regBtn" focusTraversable="false" layoutX="796.0" layoutY="214.0" mnemonicParsing="false" onAction="#addUser" prefHeight="34.0" prefWidth="143.0" text="Добавить">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="banBtn" focusTraversable="false" layoutX="796.0" layoutY="319.0" mnemonicParsing="false" onAction="#banUser" prefHeight="55.0" prefWidth="143.0" text="Изменить доступ" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="regPane" layoutX="98.0" layoutY="58.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="782.0" style="-fx-background-radius: 7; -fx-background-color: #696969;" visible="false">
+         <children>
+            <TextField fx:id="loginField" focusTraversable="false" layoutX="17.0" layoutY="103.0" prefHeight="45.0" prefWidth="342.0" promptText="Логин">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="passwordField" focusTraversable="false" layoutX="17.0" layoutY="234.0" prefHeight="45.0" prefWidth="342.0" promptText="Пароль">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </PasswordField>
+            <TextField fx:id="nameField" focusTraversable="false" layoutX="423.0" layoutY="103.0" prefHeight="45.0" prefWidth="342.0" promptText="Имя">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="surnameField" focusTraversable="false" layoutX="423.0" layoutY="169.0" prefHeight="45.0" prefWidth="342.0" promptText="Фамилия">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="addressField" focusTraversable="false" layoutX="423.0" layoutY="236.0" prefHeight="45.0" prefWidth="342.0" promptText="Адрес">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="telephoneField" focusTraversable="false" layoutX="219.0" layoutY="318.0" prefHeight="45.0" prefWidth="342.0" promptText="Номер телефона">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="emailField" focusTraversable="false" layoutX="17.0" layoutY="167.0" prefHeight="45.0" prefWidth="342.0" promptText="Email">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <Button fx:id="regUserBtn" focusTraversable="false" layoutX="178.0" layoutY="411.0" mnemonicParsing="false" onAction="#regUser" prefHeight="35.0" prefWidth="182.0" text="Зарегистрировать">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="closeRegPaneBtn" focusTraversable="false" layoutX="425.0" layoutY="412.0" mnemonicParsing="false" onAction="#closePane" prefHeight="34.0" prefWidth="120.0" text="Закрыть">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="260.0" layoutY="23.0" text="РЕГИСТРАЦИЯ" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="34.0" />
+               </font>
+            </Label>
+            <Label fx:id="logWarning" layoutX="17.0" layoutY="149.0" text="Логин занят. Придумайте другой." textFill="RED" visible="false" />
+            <Label fx:id="telephoneWarning" layoutX="219.0" layoutY="364.0" text="Некорректный ввод номера." textFill="RED" visible="false" />
+            <Label fx:id="passwordError" layoutX="17.0" layoutY="282.0" text="Пароль должен содержать не менее 6 символов" textFill="RED" visible="false" />
+            <Label fx:id="fieldWarning" layoutX="214.0" layoutY="446.0" text="Заполните все поля" textFill="RED" visible="false" />
+            <Label fx:id="success" layoutX="320.0" layoutY="373.0" text="Аккаунт зарегистрирован" textFill="#57ff57" visible="false" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

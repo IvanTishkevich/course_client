@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="978.0" stylesheets="@css/button.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mx.logic.controllers.SalesController">
+   <children>
+      <AnchorPane fx:id="salesPane" prefHeight="600.0" prefWidth="978.0" style="-fx-background-color: #424242;">
+         <children>
+            <Label layoutX="398.0" layoutY="41.0" text="ПРОДАЖИ" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="34.0" />
+               </font>
+            </Label>
+            <TableView fx:id="sellingTable" layoutX="78.0" layoutY="168.0" onMouseClicked="#getSelling" prefHeight="378.0" prefWidth="638.0" style="-fx-background-color: #696969;" tableMenuButtonVisible="true">
+               <columns>
+                  <TableColumn fx:id="colBrand" prefWidth="99.19998168945312" text="Марка" />
+                  <TableColumn fx:id="colModel" prefWidth="122.39996337890625" text="Модель" />
+                  <TableColumn fx:id="colPrice" prefWidth="101.5999755859375" text="Цена" />
+                  <TableColumn fx:id="colQuantity" prefWidth="150.4000244140625" text="Количество проданных" />
+                  <TableColumn fx:id="colDate" prefWidth="150.4000244140625" text="Дата продажи" />
+               </columns>
+            </TableView>
+            <Button fx:id="refreshBtn" focusTraversable="false" layoutX="756.0" layoutY="168.0" mnemonicParsing="false" onAction="#refreshTable" prefHeight="34.0" prefWidth="143.0" text="Обновить">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="delBtn" focusTraversable="false" layoutX="756.0" layoutY="271.0" mnemonicParsing="false" onAction="#delSelling" prefHeight="54.0" prefWidth="143.0" text="Отметить продажу" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <TextField fx:id="filterField" layoutX="78.0" layoutY="108.0" prefHeight="26.0" prefWidth="229.0" promptText="Ввведите марку или модель">
+               <font>
+                  <Font name="Times New Roman" size="16.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="39.0" fitWidth="26.0" layoutX="316.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/search.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="editBtn" focusTraversable="false" layoutX="756.0" layoutY="219.0" mnemonicParsing="false" onAction="#editSellingBtn" prefHeight="34.0" prefWidth="143.0" text="Редактировать">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="editPane" layoutX="98.0" layoutY="93.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="782.0" style="-fx-background-radius: 7; -fx-background-color: #696969;" visible="false">
+         <children>
+            <TextField fx:id="priceEditField" focusTraversable="false" layoutX="17.0" layoutY="166.0" prefHeight="45.0" prefWidth="342.0" promptText="Бренд">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <Button fx:id="editSellingBtn" focusTraversable="false" layoutX="239.0" layoutY="269.0" mnemonicParsing="false" onAction="#editSelling" prefHeight="35.0" prefWidth="120.0" text="Изменить">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="closeEditPaneBtn" focusTraversable="false" layoutX="422.0" layoutY="270.0" mnemonicParsing="false" onAction="#closePane" prefHeight="34.0" prefWidth="120.0" text="Закрыть">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="223.0" layoutY="25.0" text="РЕДАКТИРОВАНИЕ" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="34.0" />
+               </font>
+            </Label>
+            <Label fx:id="priceWarningEdit" layoutX="17.0" layoutY="212.0" text="Некорректный ввод" textFill="RED" visible="false" />
+            <Label layoutX="17.0" layoutY="140.0" text="Цена продажи" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="421.0" layoutY="140.0" text="Дата продажи" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="datePicker" editable="false" layoutX="421.0" layoutY="165.0" prefHeight="46.0" prefWidth="342.0" promptText="Дата продажи" />
+            <Label layoutX="14.0" layoutY="84.0" text="Техника:" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="fieldWarningEdit" layoutX="243.0" layoutY="307.0" text="Заполните все поля" textFill="RED" visible="false" />
+            <Label fx:id="techSaleLabel" layoutX="109.0" layoutY="84.0" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Times New Roman Bold" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="successSale" layoutX="334.0" layoutY="236.0" text="Внесены изменения" textFill="#57ff57" visible="false" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

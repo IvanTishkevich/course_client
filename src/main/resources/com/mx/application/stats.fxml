@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="statsPane" prefHeight="600.0" prefWidth="978.0" style="-fx-background-color: #424242;" stylesheets="@css/button.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mx.logic.controllers.StatsController">
+   <children>
+      <TabPane layoutY="-1.0" prefHeight="600.0" prefWidth="978.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Отчетность">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BarChart fx:id="barChart" layoutX="546.0" layoutY="107.0" legendVisible="false" prefHeight="400.0" prefWidth="363.0">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </BarChart>
+                        <Label layoutX="249.0" layoutY="49.0" text="График общей суммы продаж и поставок за месяц" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="62.0" layoutY="175.0" text="Выберите меcяц: " textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="monthBox" layoutX="230.0" layoutY="174.0" prefHeight="26.0" prefWidth="63.0" />
+                        <Label layoutX="63.0" layoutY="124.0" text="Введите год:" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="yearField" focusTraversable="false" layoutX="184.0" layoutY="120.0" prefHeight="34.0" prefWidth="110.0" promptText="Год">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="showChartBtn" focusTraversable="false" layoutX="62.0" layoutY="212.0" mnemonicParsing="false" onAction="#showChart" prefHeight="34.0" prefWidth="168.0" text="Показать график">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="yearWarningChart" layoutX="183.0" layoutY="156.0" text="Некорректный ввод" textFill="RED" visible="false" />
+                        <Label fx:id="fieldWarningChart" layoutX="294.0" layoutY="128.0" text="Заполните все поля" textFill="RED" visible="false" />
+                        <Button fx:id="createFileBtn" focusTraversable="false" layoutX="62.0" layoutY="483.0" mnemonicParsing="false" onAction="#createFile" prefHeight="34.0" prefWidth="185.0" text="Сформировать отчет">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="62.0" layoutY="411.0" prefHeight="80.0" prefWidth="334.0" text="Сформировать отчет по продажам и поставкам за месяц" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Times New Roman Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="63.0" layoutY="307.0" prefHeight="34.0" prefWidth="295.0" text="Рассчитать прибыль за месяц:" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Times New Roman Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="calProfitBtn" focusTraversable="false" layoutX="62.0" layoutY="341.0" mnemonicParsing="false" onAction="#calProfit" prefHeight="34.0" prefWidth="171.0" text="Рассчитать">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="resultProfit" layoutX="357.0" layoutY="312.0" textFill="GREEN" wrapText="true">
+                           <font>
+                              <Font name="Times New Roman Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="successCreateFile" layoutX="90.0" layoutY="517.0" text="Отчет сформирован" textFill="GREEN" visible="false" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Выборка">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="510.0" layoutY="143.0" prefHeight="24.0" prefWidth="391.0" text="Вывести наиболее продаваемую технику" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Times New Roman Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="showSaleTechBtn" focusTraversable="false" layoutX="510.0" layoutY="175.0" mnemonicParsing="false" onAction="#showSaleTech" prefHeight="19.0" prefWidth="79.0" text="Вывод" wrapText="true">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Button>
+                        <ListView fx:id="resultList" layoutX="60.0" layoutY="143.0" prefHeight="234.0" prefWidth="389.0" />
+                        <Label layoutX="510.0" layoutY="313.0" prefHeight="0.0" prefWidth="403.0" text="Вывести самого оборотного поставщика" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Times New Roman Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="showProviderBtn" focusTraversable="false" layoutX="509.0" layoutY="344.0" mnemonicParsing="false" onAction="#showTopProvider" prefHeight="19.0" prefWidth="79.0" text="Вывод" wrapText="true">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="510.0" layoutY="228.0" prefHeight="24.0" prefWidth="449.0" text="Определить технику нуждающуюся в поставке" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Times New Roman Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="showSupplyTechBtn" focusTraversable="false" layoutX="510.0" layoutY="260.0" mnemonicParsing="false" onAction="#showSupplyTech" prefHeight="19.0" prefWidth="79.0" text="Вывод" wrapText="true">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

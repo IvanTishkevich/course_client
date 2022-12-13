@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="978.0" stylesheets="@css/button.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mx.logic.controllers.ProvidersController">
+   <children>
+      <AnchorPane fx:id="providersPane" prefHeight="600.0" prefWidth="978.0" style="-fx-background-color: #424242;">
+         <children>
+            <Label layoutX="377.0" layoutY="40.0" text="ПОСТАВЩИКИ" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="34.0" />
+               </font>
+            </Label>
+            <TableView fx:id="providersTable" layoutX="113.0" layoutY="165.0" onMouseClicked="#getProvider" prefHeight="378.0" prefWidth="528.0" style="-fx-background-color: #696969;" tableMenuButtonVisible="true">
+               <columns>
+                  <TableColumn fx:id="colName" prefWidth="199.1999969482422" text="Наименование" />
+                  <TableColumn fx:id="colAddress" prefWidth="193.60003662109375" text="Адрес" />
+                  <TableColumn fx:id="colTelephone" prefWidth="117.5999755859375" text="Телефон" />
+               </columns>
+            </TableView>
+            <Button fx:id="refreshBtn" focusTraversable="false" layoutX="721.0" layoutY="165.0" mnemonicParsing="false" onAction="#refreshTable" prefHeight="34.0" prefWidth="143.0" text="Обновить">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="delBtn" focusTraversable="false" layoutX="721.0" layoutY="319.0" mnemonicParsing="false" onAction="#delProvider" prefHeight="34.0" prefWidth="143.0" text="Удалить">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="addBtn" focusTraversable="false" layoutX="721.0" layoutY="216.0" mnemonicParsing="false" onAction="#addProviderBtn" prefHeight="34.0" prefWidth="143.0" text="Добавить">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <TextField fx:id="filterField" layoutX="113.0" layoutY="105.0" prefHeight="26.0" prefWidth="229.0" promptText="Введите наименование">
+               <font>
+                  <Font name="Times New Roman" size="16.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="39.0" fitWidth="26.0" layoutX="351.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/search.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="editBtn" focusTraversable="false" layoutX="721.0" layoutY="267.0" mnemonicParsing="false" onAction="#editProviderBtn" prefHeight="34.0" prefWidth="143.0" text="Редактировать">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addPane" layoutX="98.0" layoutY="93.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="782.0" style="-fx-background-radius: 7; -fx-background-color: #696969;" visible="false">
+         <children>
+            <TextField fx:id="nameAddField" focusTraversable="false" layoutX="220.0" layoutY="132.0" prefHeight="45.0" prefWidth="342.0" promptText="Наименование">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="telephoneAddField" focusTraversable="false" layoutX="421.0" layoutY="233.0" prefHeight="45.0" prefWidth="342.0" promptText="Телефон">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="addressAddField" focusTraversable="false" layoutX="17.0" layoutY="233.0" prefHeight="45.0" prefWidth="342.0" promptText="Адрес">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <Button fx:id="addProviderBtn" focusTraversable="false" layoutX="239.0" layoutY="335.0" mnemonicParsing="false" onAction="#addProvider" prefHeight="35.0" prefWidth="120.0" text="Добавить">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="closeAddPaneBtn" focusTraversable="false" layoutX="422.0" layoutY="335.0" mnemonicParsing="false" onAction="#closePane" prefHeight="34.0" prefWidth="120.0" text="Закрыть">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="269.0" layoutY="29.0" text="ДОБАВЛЕНИЕ" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="34.0" />
+               </font>
+            </Label>
+            <Label fx:id="telephoneWarningAdd" layoutX="421.0" layoutY="279.0" text="Некорректный ввод" textFill="RED" visible="false" />
+            <Label fx:id="fieldWarningAdd" layoutX="243.0" layoutY="370.0" text="Заполните все поля" textFill="RED" visible="false" />
+            <Label layoutX="220.0" layoutY="106.0" text="Наименование" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="17.0" layoutY="207.0" text="Адрес" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="421.0" layoutY="207.0" text="Телефон" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="successAdd" layoutX="334.0" layoutY="303.0" text="Добавлен поставщик" textFill="#57ff57" visible="false" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="editPane" layoutX="98.0" layoutY="93.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="782.0" style="-fx-background-radius: 7; -fx-background-color: #696969;" visible="false">
+         <children>
+            <TextField fx:id="nameEditField" focusTraversable="false" layoutX="220.0" layoutY="125.0" prefHeight="45.0" prefWidth="342.0" promptText="Наименование">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="telephoneEditField" focusTraversable="false" layoutX="422.0" layoutY="219.0" prefHeight="45.0" prefWidth="342.0" promptText="Телефон">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="addressEditField" focusTraversable="false" layoutX="18.0" layoutY="219.0" prefHeight="45.0" prefWidth="342.0" promptText="Адрес">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </TextField>
+            <Button fx:id="editProviderBtn" focusTraversable="false" layoutX="239.0" layoutY="335.0" mnemonicParsing="false" onAction="#editProvider" prefHeight="35.0" prefWidth="120.0" text="Изменить">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="closeEditPaneBtn" focusTraversable="false" layoutX="422.0" layoutY="335.0" mnemonicParsing="false" onAction="#closePane" prefHeight="34.0" prefWidth="120.0" text="Закрыть">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="223.0" layoutY="25.0" text="РЕДАКТИРОВАНИЕ" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="34.0" />
+               </font>
+            </Label>
+            <Label fx:id="telephoneWarningEdit" layoutX="422.0" layoutY="265.0" text="Некорректный ввод" textFill="RED" visible="false" />
+            <Label fx:id="fieldWarningEdit" layoutX="243.0" layoutY="370.0" text="Заполните все поля" textFill="RED" visible="false" />
+            <Label layoutX="18.0" layoutY="193.0" text="Адрес" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="220.0" layoutY="99.0" text="Наименование" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="422.0" layoutY="193.0" text="Телефон" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="successEdit" layoutX="335.0" layoutY="298.0" text="Внесены изменения" textFill="#57ff57" visible="false" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
